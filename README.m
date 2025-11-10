@@ -1,7 +1,7 @@
-#🌮 Mexican Restaurant E-Commerce Web Application
+# 🌮 Mexican Restaurant E-Commerce Web Application
 
 
-##🚀 Overview
+## 🚀 Overview
 
 This is a Mexican Restaurant E-Commerce web app built with ASP.NET Core MVC and Entity Framework Core.
 
@@ -19,14 +19,14 @@ The project demonstrates one-to-many and many-to-many relationships, along with 
 -✅ Place orders and view order history
 -✅ Optional: Leave reviews for products
 
-##Admin Features
+## Admin Features
 
 -✅ Manage Products (Add/Edit/Delete)
 -✅ Manage Ingredients & Categories
 -✅ Manage product-ingredient relationships (many-to-many)
 -✅ View all orders
 
-##Technical Features
+## Technical Features
 -🔗 Use of **ASP.NET Core MVC** with Razor Pages
 
 -Entity Framework Core database management
@@ -48,7 +48,7 @@ The project demonstrates one-to-many and many-to-many relationships, along with 
 * GitHub: [@Irin-Mimo](https://github.com/Irin-Mimo)
 * LinkedIn: [Irin Sarker Mim](https://www.linkedin.com/in/irin-sarker-mim/)
 
-##⚡ Getting Started
+## ⚡ Getting Started
 
 1. Clone the repository:
  git clone https://github.com/Irin-Mimo/MexicanResturentApp.git
@@ -58,7 +58,7 @@ The project demonstrates one-to-many and many-to-many relationships, along with 
 5.dotnet ef database update
 6.Run the project
 
-##🛠 Tools & Technologies
+## 🛠 Tools & Technologies
 
 ⚡ ASP.NET Core MVC
 🔑 ASP.NET Identity
