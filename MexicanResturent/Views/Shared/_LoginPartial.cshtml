@@ -1,0 +1,58 @@
+﻿
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<ul class="navbar-nav align-items-center">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <li class="nav-item me-2">
+            @{
+                int cartCount = 0;
+                var cart = Context.Session.Get<OrderViewModel>("OrderViewModel");
+                if (cart != null)
+                {
+                    cartCount = cart.OrderItems.Sum(p => p.Quantity);
+                }
+            }
+
+            <a class="nav-link position-relative" asp-action="Cart" asp-controller="Order">
+                <i class="bi bi-cart2 fs-5"></i>
+                @if (cartCount > 0)
+                {
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
+                        @cartCount
+                    </span>
+                }
+            </a>
+        </li>
+
+        <li class="nav-item me-2">
+            <a class="nav-link fw-semibold" asp-area="Identity" asp-page="/Account/Manage/Index">
+                👋 Hello, @User.Identity?.Name!
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <form asp-area="Identity" asp-page="/Account/Logout"
+                  asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" class="m-0">
+                <button type="submit" class="btn btn-sm btn-danger px-3">
+                    <i class="bi bi-box-arrow-right"></i> Logout
+                </button>
+            </form>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item me-2">
+            <a class="nav-link fw-semibold" asp-area="Identity" asp-page="/Account/Register">
+                <i class="bi bi-person-plus"></i> Register
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link fw-semibold" asp-area="Identity" asp-page="/Account/Login">
+                <i class="bi bi-box-arrow-in-right"></i> Login
+            </a>
+        </li>
+    }
+</ul>

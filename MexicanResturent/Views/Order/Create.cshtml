@@ -1,0 +1,39 @@
+﻿@model OrderViewModel
+
+@{
+    ViewData["Title"] = "Create Order";
+}
+
+<h1>Create Order</h1>
+
+
+<hr />
+<div class="row">
+    @foreach(Product product in Model.Products)
+    {
+         <div class="col-md-4">
+        <form asp-action="AddItem" method="post">
+            <div class="card" style="width:18rem">
+                <img src="@Url.Content("~/images/" + product?.ImageUrl)" class="card-img-top fixed-image-height" alt="@product.Description"/>
+                
+                    <div class="card-body">
+                        @product.Name - @product.Price.ToString("C")
+                        <input type="hidden" value="@product.ProductId" name="pdtId" />
+                        <input type="number" name="pdtQty" class="form-control" />
+                        <button class="btn btn-info mt-2" type="submit">Add</button>
+                    </div>
+            </div>
+          
+        </form>
+    </div>
+    }
+   
+</div>
+
+<div>
+    <a asp-action="Index" asp-controller="Product" class="btn btn-secondary mt-2 mb-2">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
